@@ -214,11 +214,11 @@ cco:ont00001449 rdf:type owl:NamedIndividual ,
                  cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
 
 
-###  https://www.commoncoreontologies.org/ont00001452
+###  https://purl.org/efo/cco/ont00001452
 cco:ont00001452 rdf:type owl:NamedIndividual ,
                           cco:ont00000518 ;
                  rdfs:label "Indian Rupee"@en ;
-                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+cco:ont00001760 <https://purl.org/efo/cco/CurrencyUnitOntology> .
 
 
 ###  https://www.commoncoreontologies.org/ont00001455
