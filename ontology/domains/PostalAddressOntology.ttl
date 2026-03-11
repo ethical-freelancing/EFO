@@ -11,11 +11,11 @@
 @base <https://purl.org/cco/postal-address#> .
 
 <https://purl.org/cco/postal-address> rdf:type owl:Ontology ;
-    owl:versionIRI <https://purl.org/cco/postal-address/2026-02-22> ;
+    owl:versionIRI <https://purl.org/cco/postal-address/2026-02-27> ;
     owl:imports <http://purl.obolibrary.org/obo/bfo.owl> ,
                 <https://purl.org/cco/InformationEntityOntology> ;
     dc:creator "Global Research, Inc., a 501(c)(3) nonprofit organization"@en ;
-    dc:date "2026-02-22"^^xsd:date ;
+    dc:date "2026-02-27"^^xsd:date ;
     dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
     owl:versionInfo "Copyright © 2026 Global Research, Inc."@en ;
     rdfs:label "Postal Address Ontology"@en ;
@@ -205,6 +205,87 @@ postal:PostalCode rdf:type owl:Class ;
                       encoding system from which metadata (geographic area) can be derived. Component 
                       of PostalAddress per UPU Standard S42."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+#################################################################
+#    Classes - Address-Related Processes
+#################################################################
+
+###  https://purl.org/cco/postal-address/AddressDesignation
+
+postal:AddressDesignation rdf:type owl:Class ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;  # Process
+    rdfs:label "Address Designation"@en ;
+    skos:altLabel "Address Assignment"@en ,
+                  "Address Association"@en ;
+    skos:definition """A Process in which an Agent is associated with a Postal Address for a 
+                       specified Temporal Interval. This represents the administrative or legal 
+                       association between an Agent and an address, distinct from physical 
+                       relocation or occupancy."""@en ;
+    skos:example """Alice Walker's residence at 123 Sleepy Hollow, Concord, CA from September 2025 
+                    to present is an Address Designation. Global Research Inc.'s mailing address 
+                    at their office location from January 2020 to December 2025 is an Address 
+                    Designation."""@en ;
+    skos:scopeNote """Address Designation tracks the administrative/legal association between an 
+                      agent (person or organization) and a postal address over time. It is distinct 
+                      from physical relocation (which is an Act of Change of Residence, ont00000201) 
+                      and from physical occupancy of a site. An agent may have multiple simultaneous 
+                      Address Designations (e.g., residential address, mailing address, billing address).
+                      
+                      Use BFO 'occupies temporal region' (BFO_0000153) to specify when the designation 
+                      is valid. An open-ended temporal interval (no end date) indicates the designation 
+                      is still current. Use BFO 'has participant' (BFO_0000139) to connect the agent. 
+                      Use CCO 'designated by' (ont00001879) to connect the postal address.
+                      
+                      This supports address history tracking: an agent can have multiple Address 
+                      Designations over time, each with different temporal bounds. Works for both 
+                      persons and organizations."""@en ;
+    dcterms:created "2026-02-27"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    rdfs:comment """Added to support temporal tracking of address associations as requested by 
+                    Paul Trevithick (Mee Foundation). Enables modeling scenarios like 'Alice moved 
+                    to this address in September 2025 and still lives there'."""@en ;
+    rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+#################################################################
+#    Datatype Properties - Temporal Bounds
+#################################################################
+
+###  https://purl.org/cco/postal-address/hasStartDate
+
+postal:hasStartDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000038> ;  # One-Dimensional Temporal Region
+    rdfs:range xsd:date ;
+    rdfs:label "has start date"@en ;
+    skos:definition """A datatype property that associates a Temporal Interval with the calendar 
+                       date on which that interval begins."""@en ;
+    skos:example "The temporal interval 'September 2025 to present' has start date '2025-09-01'."@en ;
+    skos:scopeNote """Use this property to specify when a temporal interval begins. The value should 
+                      be an xsd:date in ISO 8601 format (YYYY-MM-DD). Typically used with Address 
+                      Designation to indicate when an agent became associated with an address."""@en ;
+    dcterms:created "2026-02-27"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+###  https://purl.org/cco/postal-address/hasEndDate
+
+postal:hasEndDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000038> ;  # One-Dimensional Temporal Region
+    rdfs:range xsd:date ;
+    rdfs:label "has end date"@en ;
+    skos:definition """A datatype property that associates a Temporal Interval with the calendar 
+                       date on which that interval ends."""@en ;
+    skos:example "The temporal interval 'January 2020 to December 2025' has end date '2025-12-31'."@en ;
+    skos:scopeNote """Use this property to specify when a temporal interval ends. The value should 
+                      be an xsd:date in ISO 8601 format (YYYY-MM-DD). Absence of this property on 
+                      a temporal interval indicates the interval is ongoing (still current). Typically 
+                      used with Address Designation to indicate when an agent's association with an 
+                      address ended."""@en ;
+    dcterms:created "2026-02-27"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
