@@ -11,13 +11,13 @@
 @base <https://purl.org/cco/postal-address#> .
 
 <https://purl.org/cco/postal-address> rdf:type owl:Ontology ;
-    owl:versionIRI <https://purl.org/cco/postal-address/2026-02-27> ;
+    owl:versionIRI <https://purl.org/cco/postal-address/1.1.0> ;
     owl:imports <http://purl.obolibrary.org/obo/bfo.owl> ,
                 <https://purl.org/cco/InformationEntityOntology> ;
     dc:creator "Global Research, Inc., a 501(c)(3) nonprofit organization"@en ;
     dc:date "2026-02-27"^^xsd:date ;
     dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
-    owl:versionInfo "Copyright © 2026 Global Research, Inc."@en ;
+    owl:versionInfo "Version 1.1.0 - Added AddressDesignation for temporal address tracking. Copyright © 2026 Global Research, Inc."@en ;
     rdfs:label "Postal Address Ontology"@en ;
     rdfs:comment "Postal Address Ontology extends from the open source Common Core Ontologies (CCO)."@en ;
     dcterms:source "https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions"^^xsd:anyURI .
