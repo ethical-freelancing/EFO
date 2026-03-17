@@ -1,5 +1,4 @@
-@prefix : <https://purl.org/cco/postal-address#> .
-@prefix postal: <https://purl.org/cco/postal-address/> .
+@prefix cco: <https://purl.org/cco/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,13 +10,13 @@
 @base <https://purl.org/cco/postal-address#> .
 
 <https://purl.org/cco/postal-address> rdf:type owl:Ontology ;
-    owl:versionIRI <https://purl.org/cco/postal-address/1.1.0> ;
+    owl:versionIRI <https://purl.org/cco/postal-address/2026-03-16> ;
     owl:imports <http://purl.obolibrary.org/obo/bfo.owl> ,
                 <https://purl.org/cco/InformationEntityOntology> ;
     dc:creator "Global Research, Inc., a 501(c)(3) nonprofit organization"@en ;
-    dc:date "2026-02-27"^^xsd:date ;
+    dc:date "2026-03-16"^^xsd:date ;
     dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
-    owl:versionInfo "Version 1.1.0 - Added AddressDesignation for temporal address tracking. Copyright © 2026 Global Research, Inc."@en ;
+    owl:versionInfo "Version 2026-03-16 - Switched to opaque ent IRIs. Copyright © 2026 Global Research, Inc."@en ;
     rdfs:label "Postal Address Ontology"@en ;
     rdfs:comment "Postal Address Ontology extends from the open source Common Core Ontologies (CCO)."@en ;
     dcterms:source "https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions"^^xsd:anyURI .
@@ -27,10 +26,10 @@
 #    Classes - Generic Address
 #################################################################
 
-###  https://purl.org/cco/postal-address/PostalAddress
+###  https://purl.org/cco/ent00000009  (Postal Address)
 
-postal:PostalAddress rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000649> ;  # Non-Name Identifier
+cco:ent00000009 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000649 ;  # Non-Name Identifier
     rdfs:label "Postal Address"@en ;
     skos:altLabel "Mailing Address"@en ;
     skos:definition """A structured Identifier consisting of geographic components (street address, 
@@ -52,10 +51,10 @@ postal:PostalAddress rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
-###  https://purl.org/cco/postal-address/USPostalAddress
+###  https://purl.org/cco/ent00000010  (US Postal Address)
 
-postal:USPostalAddress rdf:type owl:Class ;
-    rdfs:subClassOf postal:PostalAddress ;
+cco:ent00000010 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ent00000009 ;  # Postal Address
     rdfs:label "US Postal Address"@en ;
     skos:altLabel "United States Postal Address"@en ,
                   "USPS Address"@en ;
@@ -96,10 +95,10 @@ postal:USPostalAddress rdf:type owl:Class ;
 #    Classes - Address Components
 #################################################################
 
-###  https://purl.org/cco/postal-address/StreetAddress
+###  https://purl.org/cco/ent00000011  (Street Address)
 
-postal:StreetAddress rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
+cco:ent00000011 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
     rdfs:label "Street Address"@en ;
     skos:altLabel "Street-Level Address"@en ;
     skos:definition """A Designative Name representing street-level component including building number, 
@@ -119,10 +118,12 @@ postal:StreetAddress rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
-###  https://purl.org/cco/postal-address/CityName
+###  https://purl.org/cco/ent00000012  (City Name)
 
-postal:CityName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00001014> ;  # Proper Name
+cco:ent00000012 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00001014 ;  # Proper Name
+    owl:disjointWith cco:ent00000013 ,  # State Name
+                     cco:ent00000014 ;  # Country Name
     rdfs:label "City Name"@en ;
     skos:altLabel "Town Name"@en ,
                   "Municipality Name"@en ;
@@ -139,11 +140,12 @@ postal:CityName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
-###  https://purl.org/cco/postal-address/StateName
+###  https://purl.org/cco/ent00000013  (State Name)
 
-postal:StateName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00001014> ;  # Proper Name
-    owl:disjointWith postal:CityName , postal:CountryName ;
+cco:ent00000013 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00001014 ;  # Proper Name
+    owl:disjointWith cco:ent00000012 ,  # City Name
+                     cco:ent00000014 ;  # Country Name
     rdfs:label "State Name"@en ;
     skos:altLabel "Province Name"@en ,
                   "State/Province Name"@en ,
@@ -162,11 +164,12 @@ postal:StateName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
-###  https://purl.org/cco/postal-address/CountryName
+###  https://purl.org/cco/ent00000014  (Country Name)
 
-postal:CountryName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00001014> ;  # Proper Name
-    owl:disjointWith postal:StateName , postal:CityName ;
+cco:ent00000014 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00001014 ;  # Proper Name
+    owl:disjointWith cco:ent00000013 ,  # State Name
+                     cco:ent00000012 ;  # City Name
     rdfs:label "Country Name"@en ;
     skos:altLabel "Nation Name"@en ;
     skos:definition """A Proper Name representing name of sovereign geopolitical entity, typically 
@@ -186,10 +189,10 @@ postal:CountryName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
-###  https://purl.org/cco/postal-address/PostalCode
+###  https://purl.org/cco/ent00000015  (Postal Code)
 
-postal:PostalCode rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000077> ;  # Code Identifier
+cco:ent00000015 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000077 ;  # Code Identifier
     rdfs:label "Postal Code"@en ;
     skos:altLabel "ZIP Code"@en ,
                   "Postcode"@en ,
@@ -213,10 +216,10 @@ postal:PostalCode rdf:type owl:Class ;
 #    Classes - Address-Related Processes
 #################################################################
 
-###  https://purl.org/cco/postal-address/AddressDesignation
+###  https://purl.org/cco/ent00000016  (Address Designation)
 
-postal:AddressDesignation rdf:type owl:Class ;
-    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;  # Process
+cco:ent00000016 rdf:type owl:Class ;
+    rdfs:subClassOf obo:BFO_0000015 ;  # Process
     rdfs:label "Address Designation"@en ;
     skos:altLabel "Address Assignment"@en ,
                   "Address Association"@en ;
@@ -254,10 +257,10 @@ postal:AddressDesignation rdf:type owl:Class ;
 #    Datatype Properties - Temporal Bounds
 #################################################################
 
-###  https://purl.org/cco/postal-address/hasStartDate
+###  https://purl.org/cco/ent00000017  (has start date)
 
-postal:hasStartDate rdf:type owl:DatatypeProperty ;
-    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000038> ;  # One-Dimensional Temporal Region
+cco:ent00000017 rdf:type owl:DatatypeProperty ;
+    rdfs:domain obo:BFO_0000038 ;  # One-Dimensional Temporal Region
     rdfs:range xsd:date ;
     rdfs:label "has start date"@en ;
     skos:definition """A datatype property that associates a Temporal Interval with the calendar 
@@ -271,10 +274,10 @@ postal:hasStartDate rdf:type owl:DatatypeProperty ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
-###  https://purl.org/cco/postal-address/hasEndDate
+###  https://purl.org/cco/ent00000018  (has end date)
 
-postal:hasEndDate rdf:type owl:DatatypeProperty ;
-    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000038> ;  # One-Dimensional Temporal Region
+cco:ent00000018 rdf:type owl:DatatypeProperty ;
+    rdfs:domain obo:BFO_0000038 ;  # One-Dimensional Temporal Region
     rdfs:range xsd:date ;
     rdfs:label "has end date"@en ;
     skos:definition """A datatype property that associates a Temporal Interval with the calendar 
@@ -288,6 +291,24 @@ postal:hasEndDate rdf:type owl:DatatypeProperty ;
     dcterms:created "2026-02-27"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+#################################################################
+#    Deprecated IRI Aliases (label-based IRIs — version 1.1.0)
+#    These redirect to their opaque ent replacements.
+#    Safe to remove after all downstream consumers have updated.
+#################################################################
+
+<https://purl.org/cco/postal-address/PostalAddress>       owl:deprecated true ; rdfs:seeAlso cco:ent00000009 .
+<https://purl.org/cco/postal-address/USPostalAddress>     owl:deprecated true ; rdfs:seeAlso cco:ent00000010 .
+<https://purl.org/cco/postal-address/StreetAddress>       owl:deprecated true ; rdfs:seeAlso cco:ent00000011 .
+<https://purl.org/cco/postal-address/CityName>            owl:deprecated true ; rdfs:seeAlso cco:ent00000012 .
+<https://purl.org/cco/postal-address/StateName>           owl:deprecated true ; rdfs:seeAlso cco:ent00000013 .
+<https://purl.org/cco/postal-address/CountryName>         owl:deprecated true ; rdfs:seeAlso cco:ent00000014 .
+<https://purl.org/cco/postal-address/PostalCode>          owl:deprecated true ; rdfs:seeAlso cco:ent00000015 .
+<https://purl.org/cco/postal-address/AddressDesignation>  owl:deprecated true ; rdfs:seeAlso cco:ent00000016 .
+<https://purl.org/cco/postal-address/hasStartDate>        owl:deprecated true ; rdfs:seeAlso cco:ent00000017 .
+<https://purl.org/cco/postal-address/hasEndDate>          owl:deprecated true ; rdfs:seeAlso cco:ent00000018 .
 
 
 #################################################################

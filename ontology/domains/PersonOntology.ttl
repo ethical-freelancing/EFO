@@ -1,5 +1,4 @@
-@prefix : <https://purl.org/cco/person#> .
-@prefix po: <https://purl.org/cco/person/> .
+@prefix cco: <https://purl.org/cco/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,7 +10,7 @@
 @base <https://purl.org/cco/person#> .
 
 <https://purl.org/cco/person> rdf:type owl:Ontology ;
-    owl:versionIRI <https://purl.org/cco/person/2026-02-22> ;
+    owl:versionIRI <https://purl.org/cco/person/2026-03-16> ;
     owl:imports <http://purl.obolibrary.org/obo/bfo.owl> ,
                 <https://purl.org/cco/InformationEntityOntology> ,
                 <https://purl.org/cco/AgentOntology> ,
@@ -25,9 +24,9 @@
                 <https://purl.org/cco/TimeOntology> ,
                 <https://purl.org/cco/UnitsOfMeasureOntology> ;
     dc:creator "Global Research, Inc., a 501(c)(3) nonprofit organization"@en ;
-    dc:date "2026-02-22"^^xsd:date ;
+    dc:date "2026-03-16"^^xsd:date ;
     dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
-    owl:versionInfo "Copyright © 2026 Global Research, Inc."@en ;
+    owl:versionInfo "Version 2026-03-16 - Switched to opaque ent IRIs. Copyright © 2026 Global Research, Inc."@en ;
     rdfs:label "Person Ontology"@en ;
     rdfs:comment "Person Ontology extends from the open source Common Core Ontologies (CCO)."@en .
 
@@ -36,10 +35,10 @@
 #    Classes - Name Types
 #################################################################
 
-###  https://purl.org/cco/person/FullName
+###  https://purl.org/cco/ent00000001  (Full Name)
 
-po:FullName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
+cco:ent00000001 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
     rdfs:label "Full Name"@en ;
     skos:altLabel "Complete Name"@en ;
     skos:definition """A Designative Name consisting of a person's complete name as self-reported 
@@ -59,11 +58,11 @@ po:FullName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
-###  https://purl.org/cco/person/GivenName
+###  https://purl.org/cco/ent00000002  (Given Name)
 
-po:GivenName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
-    owl:disjointWith po:FamilyName ;
+cco:ent00000002 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
+    owl:disjointWith cco:ent00000004 ;  # Family Name
     rdfs:label "Given Name"@en ;
     skos:altLabel "First Name"@en ,
                   "Forename"@en ;
@@ -81,10 +80,10 @@ po:GivenName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
-###  https://purl.org/cco/person/AdditionalName
+###  https://purl.org/cco/ent00000003  (Additional Name)
 
-po:AdditionalName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
+cco:ent00000003 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
     rdfs:label "Additional Name"@en ;
     skos:altLabel "Middle Name"@en ,
                   "Middle Name(s)"@en ,
@@ -105,11 +104,11 @@ po:AdditionalName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
-###  https://purl.org/cco/person/FamilyName
+###  https://purl.org/cco/ent00000004  (Family Name)
 
-po:FamilyName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
-    owl:disjointWith po:GivenName ;
+cco:ent00000004 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
+    owl:disjointWith cco:ent00000002 ;  # Given Name
     rdfs:label "Family Name"@en ;
     skos:altLabel "Surname"@en ,
                   "Last Name"@en ;
@@ -128,10 +127,10 @@ po:FamilyName rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
-###  https://purl.org/cco/person/Suffix
+###  https://purl.org/cco/ent00000005  (Suffix)
 
-po:Suffix rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
+cco:ent00000005 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
     rdfs:label "Suffix"@en ;
     skos:altLabel "Name Suffix"@en ,
                   "Honorific Suffix"@en ;
@@ -150,10 +149,10 @@ po:Suffix rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
-###  https://purl.org/cco/person/AlternateName
+###  https://purl.org/cco/ent00000006  (Alternate Name)
 
-po:AlternateName rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000003> ;  # Designative Name
+cco:ent00000006 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
     rdfs:label "Alternate Name"@en ;
     skos:altLabel "Alternative Name"@en ;
     skos:definition """A Designative Name used as an alternative designation for a person, such as 
@@ -178,10 +177,10 @@ po:AlternateName rdf:type owl:Class ;
 #    Classes - Person-Specific Identifiers
 #################################################################
 
-###  https://purl.org/cco/person/NationalPersonIdentifier
+###  https://purl.org/cco/ent00000007  (National Person Identifier)
 
-po:NationalPersonIdentifier rdf:type owl:Class ;
-    rdfs:subClassOf <https://purl.org/cco/ont00000077> ;  # Code Identifier
+cco:ent00000007 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000077 ;  # Code Identifier
     rdfs:label "National Person Identifier"@en ;
     skos:altLabel "National ID Number"@en ,
                   "National Identification Number"@en ;
@@ -203,10 +202,10 @@ po:NationalPersonIdentifier rdf:type owl:Class ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
-###  https://purl.org/cco/person/SocialSecurityNumber
+###  https://purl.org/cco/ent00000008  (Social Security Number)
 
-po:SocialSecurityNumber rdf:type owl:Class ;
-    rdfs:subClassOf po:NationalPersonIdentifier ;
+cco:ent00000008 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ent00000007 ;  # National Person Identifier
     rdfs:label "Social Security Number"@en ;
     skos:altLabel "SSN"@en ;
     skos:definition """A National Person Identifier issued by the United States Social Security 
@@ -242,6 +241,22 @@ po:SocialSecurityNumber rdf:type owl:Class ;
 # PersonNickname as person-specific subclass adds no semantic value since 
 # no person-specific axioms are needed. Applications should use CCO Nickname 
 # directly. Working group may reconsider if person-specific axioms emerge.
+
+
+#################################################################
+#    Deprecated IRI Aliases (label-based IRIs — version 2026-02-22)
+#    These redirect to their opaque ent replacements.
+#    Safe to remove after all downstream consumers have updated.
+#################################################################
+
+<https://purl.org/cco/person/FullName>       owl:deprecated true ; rdfs:seeAlso cco:ent00000001 .
+<https://purl.org/cco/person/GivenName>      owl:deprecated true ; rdfs:seeAlso cco:ent00000002 .
+<https://purl.org/cco/person/AdditionalName> owl:deprecated true ; rdfs:seeAlso cco:ent00000003 .
+<https://purl.org/cco/person/FamilyName>     owl:deprecated true ; rdfs:seeAlso cco:ent00000004 .
+<https://purl.org/cco/person/Suffix>         owl:deprecated true ; rdfs:seeAlso cco:ent00000005 .
+<https://purl.org/cco/person/AlternateName>  owl:deprecated true ; rdfs:seeAlso cco:ent00000006 .
+<https://purl.org/cco/person/NationalPersonIdentifier> owl:deprecated true ; rdfs:seeAlso cco:ent00000007 .
+<https://purl.org/cco/person/SocialSecurityNumber>     owl:deprecated true ; rdfs:seeAlso cco:ent00000008 .
 
 
 #################################################################
