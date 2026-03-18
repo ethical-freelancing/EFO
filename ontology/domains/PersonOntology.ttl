@@ -55,6 +55,7 @@ cco:ent00000001 rdf:type owl:Class ;
                       FHIR, SEMIC, Google Takeout, ChatGPT, IANA, vCard (10+ sources)."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/name> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
@@ -77,6 +78,7 @@ cco:ent00000002 rdf:type owl:Class ;
                       Connect, FHIR, Schema.org, SEMIC, Google Takeout, IANA, ISO mDOC (14+ sources)."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/givenName> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
@@ -101,6 +103,7 @@ cco:ent00000003 rdf:type owl:Class ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://datatracker.ietf.org/doc/html/rfc7519"^^xsd:anyURI ;
+    skos:exactMatch <https://schema.org/additionalName> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
@@ -124,6 +127,7 @@ cco:ent00000004 rdf:type owl:Class ;
                       ISO mDOC (14+ sources)."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/familyName> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
@@ -146,6 +150,7 @@ cco:ent00000005 rdf:type owl:Class ;
                       Data models: VCARD, Schema.org (implied in examples), IANA."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/honorificSuffix> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
@@ -170,6 +175,7 @@ cco:ent00000006 rdf:type owl:Class ;
                       (7+ sources)."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/alternateName> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 
@@ -227,6 +233,111 @@ cco:ent00000008 rdf:type owl:Class ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.ssa.gov/history/ssn/geocard.html"^^xsd:anyURI ;
+    rdfs:isDefinedBy <https://purl.org/cco/person> .
+
+
+###  https://purl.org/cco/ent00000057  (Title)
+
+cco:ent00000057 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
+    rdfs:label "Title"@en ;
+    skos:altLabel "Honorific Prefix"@en ,
+                  "Name Prefix"@en ,
+                  "Salutation"@en ;
+    skos:definition """A Designative Name component that precedes a person's given name, 
+        expressing honorific status, professional role, or social rank."""@en ;
+    skos:example "'Dr.' in 'Dr. Alice Walker', 'Prof.' in 'Prof. John Smith', 'Mr.' in 'Mr. James Schoening'."@en ;
+    skos:scopeNote """Title precedes the given name and is distinct from Suffix (ent00000005) 
+        which follows the family name. Title expresses: (1) academic/professional credentials 
+        used as prefixes (Dr., Prof., Eng.), (2) social honorifics (Mr., Mrs., Ms., Mx.), 
+        (3) military or noble rank (Capt., Sir, Dame). A person may have multiple Titles. 
+        RFC 9553 JSContact represents this as a NameComponent of kind 'title'. 
+        Data models: vCard (HONORIFIC-PREFIX), Schema.org (honorificPrefix), 
+        FHIR, IANA (salutation) — 8+ sources."""@en ;
+    dcterms:created "2026-03-17"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
+    skos:exactMatch <https://schema.org/honorificPrefix> ;
+    rdfs:isDefinedBy <https://purl.org/cco/person> .
+
+
+###  https://purl.org/cco/ent00000058  (Surname2)
+
+cco:ent00000058 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
+    rdfs:label "Surname2"@en ;
+    skos:altLabel "Second Surname"@en ,
+                  "Maternal Surname"@en ,
+                  "Second Family Name"@en ;
+    skos:definition """A Designative Name representing a secondary surname used in 
+        naming conventions where a person bears two family names, typically one from 
+        each parent."""@en ;
+    skos:example "In 'Diego Rivera Barrientos', 'Barrientos' is the Surname2 (maternal surname)."@en ;
+    skos:scopeNote """Surname2 is used in Spanish, Portuguese, and some other naming 
+        conventions where a person bears both a paternal surname (FamilyName, ent00000004) 
+        and a maternal surname (Surname2). It is distinct from FamilyName — the two are 
+        peers, not a hierarchy. Surname2 is not the same as a hyphenated compound surname, 
+        which is a single FamilyName. RFC 9553 JSContact represents this as a NameComponent 
+        of kind 'surname2'. Data models: RFC 9553, FHIR (family with qualifier), 
+        SEMIC Core Person Vocabulary — 4+ sources."""@en ;
+    dcterms:created "2026-03-17"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
+    rdfs:isDefinedBy <https://purl.org/cco/person> .
+
+
+#################################################################
+#    Classes - Person Life Events
+#################################################################
+
+###  https://purl.org/cco/ent00000046  (Birthdate)
+
+cco:ent00000046 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00001340 ;  # Calendar Date Identifier
+    rdfs:label "Birthdate"@en ;
+    skos:altLabel "Date of Birth"@en ,
+                  "Birthday"@en ;
+    skos:definition """A Calendar Date Identifier that designates the date on which 
+        a Person was born."""@en ;
+    skos:example "The string '1985-06-15' in ISO 8601 format designates a Birthdate."@en ;
+    skos:scopeNote """Birthdate designates the calendar date of birth — it is information 
+        (a designator), not a quality inhering in the person. It follows ISO 8601 date format 
+        (YYYY-MM-DD). Birthdate is distinct from Age (a measurement derived from Birthdate). 
+        RFC 9553 JSContact represents this as an Anniversary of kind 'birth'. 
+        Data models: OpenID Connect (birthdate), FHIR (birthDate), Schema.org (birthDate), 
+        ISO mDOC (birth_date), IANA JWT (birthdate) — 10+ sources."""@en ;
+    dcterms:created "2026-03-17"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
+    skos:exactMatch <https://schema.org/birthDate> ;
+    rdfs:isDefinedBy <https://purl.org/cco/person> .
+
+
+#################################################################
+#    Classes - Person-Organization Relationships
+#################################################################
+
+###  https://purl.org/cco/ent00000047  (Organization Name)
+
+cco:ent00000047 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000003 ;  # Designative Name
+    rdfs:label "Organization Name"@en ;
+    skos:altLabel "Company Name"@en ,
+                  "Employer Name"@en ;
+    skos:definition """A Designative Name that designates an Organization, 
+        typically the company or institution a Person is affiliated with."""@en ;
+    skos:example "The string 'Mee Foundation' designates the organization Paul Trevithick is affiliated with."@en ;
+    skos:scopeNote """OrganizationName designates an Organization entity (CCO ont00001180). 
+        In the context of a Person record, it typically represents the person's employer 
+        or primary organizational affiliation. A person may be affiliated with multiple 
+        organizations simultaneously. OrganizationName is the designator (information); 
+        the Organization is the entity being designated. 
+        RFC 9553 JSContact represents this in the 'organizations' property. 
+        Data models: Schema.org (worksFor), FHIR, OpenID Connect, vCard (ORG) — 8+ sources."""@en ;
+    dcterms:created "2026-03-17"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
+    skos:closeMatch <https://schema.org/worksFor> ;
     rdfs:isDefinedBy <https://purl.org/cco/person> .
 
 

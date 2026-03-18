@@ -48,6 +48,7 @@ cco:ent00000009 rdf:type owl:Class ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.upu.int/UPU/media/upu/documents/PostCode/S42_International-Addressing-Standards.pdf"^^xsd:anyURI ;
+    skos:exactMatch <https://schema.org/PostalAddress> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -88,6 +89,7 @@ cco:ent00000010 rdf:type owl:Class ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://pe.usps.com/text/pub28/welcome.htm"^^xsd:anyURI ,
                    "https://www.upu.int/UPU/media/upu/PostalEntitiesFiles/s42/usaEn.pdf"^^xsd:anyURI ;
+    skos:closeMatch <https://schema.org/PostalAddress> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -115,6 +117,7 @@ cco:ent00000011 rdf:type owl:Class ;
                       can designate residential, commercial, or institutional locations."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/streetAddress> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -137,6 +140,7 @@ cco:ent00000012 rdf:type owl:Class ;
                       of PostalAddress per UPU Standard S42."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/addressLocality> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -161,6 +165,7 @@ cco:ent00000013 rdf:type owl:Class ;
                       first-order administrative region. Component of PostalAddress per UPU Standard S42."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/addressRegion> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -186,6 +191,7 @@ cco:ent00000014 rdf:type owl:Class ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.iso.org/iso-3166-country-codes.html"^^xsd:anyURI ;
+    skos:exactMatch <https://schema.org/addressCountry> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -209,6 +215,7 @@ cco:ent00000015 rdf:type owl:Class ;
                       of PostalAddress per UPU Standard S42."""@en ;
     dcterms:created "2026-02-22"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    skos:exactMatch <https://schema.org/postalCode> ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
@@ -290,6 +297,64 @@ cco:ent00000018 rdf:type owl:DatatypeProperty ;
                       address ended."""@en ;
     dcterms:created "2026-02-27"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
+    rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+###  https://purl.org/cco/ent00000056  (Postal Zone)
+
+cco:ent00000056 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000460 ;  # Local Administrative Region
+    rdfs:label "Postal Zone"@en ;
+    skos:definition """A Local Administrative Region that delimits a set of delivery 
+        points within a postal system of some government."""@en ;
+    skos:example "US ZIP code 02101 designates a postal zone in Boston, MA."@en ;
+    skos:scopeNote """PostalZone is the geographic region that a PostalCode (ent00000015) 
+        designates. PostalCode is the identifier (information); PostalZone is the 
+        geographic area being designated. A PostalZone is defined and maintained 
+        by a postal authority (e.g., USPS in the USA)."""@en ;
+    skos:exactMatch <http://www.ontologyrepository.com/CommonCoreOntologies/PostalZone> ;
+    dcterms:created "2026-03-17"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+###  https://purl.org/cco/ent00000059  (Country Code)
+
+cco:ent00000059 rdf:type owl:Class ;
+    rdfs:subClassOf cco:ont00000077 ;  # Code Identifier
+    rdfs:label "Country Code"@en ;
+    skos:altLabel "ISO Country Code"@en ,
+                  "ISO 3166-1 Alpha-2 Code"@en ;
+    skos:definition """A Code Identifier that designates a country using a standardized 
+        abbreviation, typically the ISO 3166-1 alpha-2 two-letter code."""@en ;
+    skos:example "The string 'US' designates the United States. 'DE' designates Germany."@en ;
+    skos:scopeNote """CountryCode is distinct from CountryName (ent00000014) — both designate 
+        the same country domain but CountryCode uses a structured ISO encoding while 
+        CountryName uses a natural language proper name. ISO 3166-1 defines three code forms: 
+        alpha-2 (US), alpha-3 (USA), and numeric (840). This class covers all three forms. 
+        RFC 9553 JSContact uses countryCode as a separate field from the country name 
+        component in addresses. Data models: RFC 9553, ISO 3166-1, vCard (COUNTRY), 
+        FHIR, EU Digital Identity Wallet — 8+ sources."""@en ;
+    dcterms:created "2026-03-17"^^xsd:date ;
+    dc:creator "Global Research, Inc."@en ;
+    dcterms:source "https://www.iso.org/iso-3166-country-codes.html"^^xsd:anyURI ;
+    skos:closeMatch <https://schema.org/addressCountry> ;
+    rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
+
+
+###  https://purl.org/cco/ent00000060  (US - United States country code)
+
+cco:ent00000060 rdf:type owl:NamedIndividual ,
+                         cco:ent00000059 ;  # Country Code
+    rdfs:label "US"@en ;
+    skos:altLabel "USA"@en ,
+                  "840"@en ;
+    skos:definition """The ISO 3166-1 alpha-2 code designating the United States of America."""@en ;
+    skos:scopeNote """ISO 3166-1 defines three forms for the United States: 
+        alpha-2 'US', alpha-3 'USA', numeric '840'. This individual represents all three 
+        as alternative labels. Additional country code individuals will be added as 
+        requirements emerge. Full list at https://www.iso.org/iso-3166-country-codes.html"""@en ;
+    dcterms:source "https://www.iso.org/iso-3166-country-codes.html"^^xsd:anyURI ;
     rdfs:isDefinedBy <https://purl.org/cco/postal-address> .
 
 
