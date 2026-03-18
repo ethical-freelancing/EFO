@@ -390,8 +390,9 @@ cco:ent00000049 rdf:type owl:Class ;
     skos:scopeNote """PaymentCard is a superclass covering all card-based payment instruments. 
         Subclasses distinguish credit-based (CreditCard) from account-based (DebitCard) 
         instruments. A PaymentCard is identified by a CreditCardNumber, secured by a CVV, 
-        and has an ExpirationDateIdentifier. The cardholder is a Person who bears an 
-        OccupationRole or other role as account holder."""@en ;
+        and has an ExpirationDateIdentifier. 
+        Data models: Schema.org (PaymentCard), MyDex (Dataset: Credit Card), 
+        Mee Foundation Requirements (Credit Card), Orphan-Ontology-Dev — 4+ sources."""@en ;
     cco:ent00000019 "A future Financial domain ontology (IEEE P3195.1.x)"@en ;
     cco:ent00000020 "No CCO mid-level payment card class exists. Staging pending financial domain ontology formation."@en ;
     cco:ent00000021 "2026-03-17"^^xsd:date ;
@@ -415,6 +416,7 @@ cco:ent00000050 rdf:type owl:Class ;
     cco:ent00000021 "2026-03-17"^^xsd:date ;
     cco:ent00000022 "Proposed to Financial Domain Ontology WG when formed 2026-Q4"@en ;
     dc:creator "Global Research, Inc."@en ;
+    skos:scopeNote """CreditCard authorizes purchases on short-term credit extended by the issuer. Migrated from Orphan-Ontology-Dev CCO 1.x with corrected parent (PaymentCard not FinancialArtifactFunction directly). Data models: Schema.org (CreditCard), MyDex (Dataset: Credit Card), Mee Foundation Requirements (Credit Card), Orphan-Ontology-Dev — 4+ sources."""@en ;
     skos:exactMatch <https://schema.org/CreditCard> ;
     rdfs:isDefinedBy <https://purl.org/cco/staging> .
 
@@ -453,6 +455,7 @@ cco:ent00000052 rdf:type owl:Class ;
     cco:ent00000020 "Migrated from Orphan-Ontology-Dev CCO 1.x."@en ;
     cco:ent00000021 "2026-03-17"^^xsd:date ;
     cco:ent00000022 "Proposed to Financial Domain Ontology WG when formed 2026-Q4"@en ;
+    skos:scopeNote """CreditCardNumber (also PAN / Primary Account Number) is the sequence of digits per ISO/IEC 7812 that designates the card account. Data models: Mee Foundation Requirements (Credit Card Number), Orphan-Ontology-Dev — 2+ sources."""@en ;
     dc:creator "Global Research, Inc."@en ;
     rdfs:isDefinedBy <https://purl.org/cco/staging> .
 
@@ -472,6 +475,7 @@ cco:ent00000053 rdf:type owl:Class ;
     cco:ent00000020 "Migrated from Orphan-Ontology-Dev CCO 1.x."@en ;
     cco:ent00000021 "2026-03-17"^^xsd:date ;
     cco:ent00000022 "Proposed to Financial Domain Ontology WG when formed 2026-Q4"@en ;
+    skos:scopeNote """CVV (Card Verification Value) reduces online fraud. Also known as CVC, CVV2, CID. Data models: Mee Foundation Requirements (Credit Card CVV), Orphan-Ontology-Dev — 2+ sources."""@en ;
     dc:creator "Global Research, Inc."@en ;
     rdfs:isDefinedBy <https://purl.org/cco/staging> .
 
@@ -487,7 +491,9 @@ cco:ent00000054 rdf:type owl:Class ;
     skos:example "The date '12/28' on a credit card indicates the card expires at the end of December 2028."@en ;
     skos:scopeNote """Parent corrected from TimeOfDayIdentifier (Orphan-Ontology-Dev CCO 1.x) 
         to CalendarDateIdentifier (CCO 2.0 ont00001340). An expiration date designates 
-        a calendar date, not a time of day."""@en ;
+        a calendar date, not a time of day. Also known as 'valid thru' date. 
+        Data models: Mee Foundation Requirements (Credit Card expiration date), 
+        Orphan-Ontology-Dev — 2+ sources."""@en ;
     cco:ent00000019 "A future Financial domain ontology (IEEE P3195.1.x)"@en ;
     cco:ent00000020 "Migrated from Orphan-Ontology-Dev CCO 1.x. Parent corrected from TimeOfDayIdentifier to CalendarDateIdentifier."@en ;
     cco:ent00000021 "2026-03-17"^^xsd:date ;

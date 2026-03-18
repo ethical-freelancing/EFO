@@ -311,7 +311,9 @@ cco:ent00000056 rdf:type owl:Class ;
     skos:scopeNote """PostalZone is the geographic region that a PostalCode (ent00000015) 
         designates. PostalCode is the identifier (information); PostalZone is the 
         geographic area being designated. A PostalZone is defined and maintained 
-        by a postal authority (e.g., USPS in the USA)."""@en ;
+        by a postal authority (e.g., USPS in the USA). 
+        Migrated from Orphan-Ontology-Dev. 
+        Data models: Orphan-Ontology-Dev — 1 source (infrastructure term)."""@en ;
     skos:exactMatch <http://www.ontologyrepository.com/CommonCoreOntologies/PostalZone> ;
     dcterms:created "2026-03-17"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
@@ -331,10 +333,13 @@ cco:ent00000059 rdf:type owl:Class ;
     skos:scopeNote """CountryCode is distinct from CountryName (ent00000014) — both designate 
         the same country domain but CountryCode uses a structured ISO encoding while 
         CountryName uses a natural language proper name. ISO 3166-1 defines three code forms: 
-        alpha-2 (US), alpha-3 (USA), and numeric (840). This class covers all three forms. 
+        alpha-2 (US), alpha-3 (USA), and numeric (840). 
         RFC 9553 JSContact uses countryCode as a separate field from the country name 
-        component in addresses. Data models: RFC 9553, ISO 3166-1, vCard (COUNTRY), 
-        FHIR, EU Digital Identity Wallet — 8+ sources."""@en ;
+        component in addresses. 
+        Data models: RFC 9553, ISO 3166-1, Google Takeout (country_code "US"), 
+        HL7 FHIR (address-country), SEMIC (administrative unit level 1), 
+        vCard (country-name), ISO mDOC (issuing_country), ISO 18013-5 (Issuing country), 
+        IBV Form (List of countries) — 9+ sources."""@en ;
     dcterms:created "2026-03-17"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.iso.org/iso-3166-country-codes.html"^^xsd:anyURI ;

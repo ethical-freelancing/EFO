@@ -248,12 +248,14 @@ cco:ent00000057 rdf:type owl:Class ;
         expressing honorific status, professional role, or social rank."""@en ;
     skos:example "'Dr.' in 'Dr. Alice Walker', 'Prof.' in 'Prof. John Smith', 'Mr.' in 'Mr. James Schoening'."@en ;
     skos:scopeNote """Title precedes the given name and is distinct from Suffix (ent00000005) 
-        which follows the family name. Title expresses: (1) academic/professional credentials 
+        which follows the family name. Expresses: (1) academic/professional credentials 
         used as prefixes (Dr., Prof., Eng.), (2) social honorifics (Mr., Mrs., Ms., Mx.), 
         (3) military or noble rank (Capt., Sir, Dame). A person may have multiple Titles. 
         RFC 9553 JSContact represents this as a NameComponent of kind 'title'. 
-        Data models: vCard (HONORIFIC-PREFIX), Schema.org (honorificPrefix), 
-        FHIR, IANA (salutation) — 8+ sources."""@en ;
+        Data models: Schema.org (honorificPrefix), vCard (HONORIFIC-PREFIX), 
+        FOAF (title), IANA JWT (salutation / "End-User's salutation, e.g., Mr."), 
+        MyData Dictionary (my-salutation), MyDex (Title), 
+        Person-Ontology-Dev (Salutation) — 8+ sources."""@en ;
     dcterms:created "2026-03-17"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
@@ -278,8 +280,10 @@ cco:ent00000058 rdf:type owl:Class ;
         and a maternal surname (Surname2). It is distinct from FamilyName — the two are 
         peers, not a hierarchy. Surname2 is not the same as a hyphenated compound surname, 
         which is a single FamilyName. RFC 9553 JSContact represents this as a NameComponent 
-        of kind 'surname2'. Data models: RFC 9553, FHIR (family with qualifier), 
-        SEMIC Core Person Vocabulary — 4+ sources."""@en ;
+        of kind 'surname2'. SEMIC Core Person Vocabulary includes 'matronymic name' covering 
+        the same concept. Person-Ontology-Dev also includes 'matronymic name'. 
+        Data models: RFC 9553, SEMIC Core Person Vocabulary (matronymic name), 
+        Person-Ontology-Dev — 3+ sources."""@en ;
     dcterms:created "2026-03-17"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
@@ -301,11 +305,15 @@ cco:ent00000046 rdf:type owl:Class ;
         a Person was born."""@en ;
     skos:example "The string '1985-06-15' in ISO 8601 format designates a Birthdate."@en ;
     skos:scopeNote """Birthdate designates the calendar date of birth — it is information 
-        (a designator), not a quality inhering in the person. It follows ISO 8601 date format 
-        (YYYY-MM-DD). Birthdate is distinct from Age (a measurement derived from Birthdate). 
+        (a designator), not a quality inhering in the person. Follows ISO 8601 date format 
+        (YYYY-MM-DD). Distinct from Age (a measurement derived from Birthdate). 
         RFC 9553 JSContact represents this as an Anniversary of kind 'birth'. 
-        Data models: OpenID Connect (birthdate), FHIR (birthDate), Schema.org (birthDate), 
-        ISO mDOC (birth_date), IANA JWT (birthdate) — 10+ sources."""@en ;
+        Data models with this concept (10+ sources): Schema.org (birthDate), 
+        HL7 FHIR (birthdate), SEMIC Core Person Vocabulary (date of birth), 
+        MyDex (Birth-Details: Date of Birth), IANA JWT (birthdate / "Birthday"), 
+        ISO mDOC (birth_date), ISO 18013-5 (Date of birth), 
+        ChatGPT common fields, MyData Dictionary (my-birthdate), 
+        Person-Ontology-Dev (Birthdate)."""@en ;
     dcterms:created "2026-03-17"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
@@ -328,12 +336,13 @@ cco:ent00000047 rdf:type owl:Class ;
         typically the company or institution a Person is affiliated with."""@en ;
     skos:example "The string 'Mee Foundation' designates the organization Paul Trevithick is affiliated with."@en ;
     skos:scopeNote """OrganizationName designates an Organization entity (CCO ont00001180). 
-        In the context of a Person record, it typically represents the person's employer 
+        In the context of a Person record it typically represents the person's employer 
         or primary organizational affiliation. A person may be affiliated with multiple 
         organizations simultaneously. OrganizationName is the designator (information); 
         the Organization is the entity being designated. 
         RFC 9553 JSContact represents this in the 'organizations' property. 
-        Data models: Schema.org (worksFor), FHIR, OpenID Connect, vCard (ORG) — 8+ sources."""@en ;
+        Data models: Schema.org (worksFor/affiliation), HL7 FHIR, OpenID Connect, 
+        vCard (ORG), MyDex (Host Organisation, Establishment Name), FOAF (Organization) — 8+ sources."""@en ;
     dcterms:created "2026-03-17"^^xsd:date ;
     dc:creator "Global Research, Inc."@en ;
     dcterms:source "https://www.rfc-editor.org/rfc/rfc9553"^^xsd:anyURI ;
